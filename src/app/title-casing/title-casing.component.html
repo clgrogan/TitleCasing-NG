@@ -10,7 +10,10 @@
     />
   </section>
   <section>
-    <h2>Title Case: {{ userInput }}</h2>
+    <h2>
+      Title Case:<br />
+      | {{ userInput }}
+    </h2>
   </section>
 </main>
 <footer>
@@ -21,4 +24,8 @@
     word of the string, in which case it would be capitalized like a 'normal'
     word.
   </p>
+  <div>
+    Minor words:
+    <span *ngFor="let minorWord of minorWords"> {{ minorWord }} </span>
+  </div>
 </footer>

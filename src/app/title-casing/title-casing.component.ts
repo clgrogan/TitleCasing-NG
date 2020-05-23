@@ -7,8 +7,10 @@ import { Component, OnInit } from "@angular/core";
 })
 export class TitleCasingComponent implements OnInit {
   userInput;
+  minorWords;
   constructor() {
     this.userInput = "";
+    this.minorWords = ["a", "an", "the", "of"];
   }
 
   ngOnInit(): void {}
