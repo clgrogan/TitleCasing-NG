@@ -1,27 +1,38 @@
-# TitleCasingNg
+# TitleCasePipe
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
+## Exercise 3
 
-## Development server
+### The application takes the user input and converts it to title case\*
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Exercise to create a component takes the user input and converts it to title case \*.
 
-## Code scaffolding
+\*A string is considered to be in title case if each word in the string is
+either capitalized with only the first letter in uppercase. Except in the
+case of a minor word, which will be all lower case unless it is the first
+word of the string, in which case it will be capitalized like a 'normal'
+word.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Action Plan:
 
-## Build
+    ✔ Create Project using NG CLI
+    ✔ Connect and push to GitHub
+    ✔ Create Component using NG CLI
+    ✔ Add exceptions/minor words table to the component
+    ✔ Add the input field and titlecase output field to template
+    ✔ Create a custom pipe that takes the user input and optionally a an array of minor words, then outputs the input string in titlecase.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+May include any or all of these topics:
+Section 4: Displaying Data and
+Handling Events
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+38. Property Binding<br>
+39. Attribute Binding<br>
+40. Adding Bootstrap<br>
+41. Class Binding<br>
+42. Style Binding<br>
+43. Event Binding<br>
+44. Event Filtering<br>
+45. Template Variables<br>
+46. Two-way Binding<br>
+47. Pipes<br>
+48. Custom Pipes<br>

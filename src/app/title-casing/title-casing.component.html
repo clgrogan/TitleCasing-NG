@@ -1,20 +1,32 @@
 <header>
-  <h1>Title Casing</h1>
+  <h1>Title Casing | TitleCasePipe</h1>
   <h2>The application takes the user input and converts it to title case*.</h2>
 </header>
 <main>
   <section>
-    <input
+    <label>Input field: </label
+    ><input
       [(value)]="userInput"
       (keydown.enter)="userInput = $event.target.value; userInputChange()"
     />
   </section>
   <section>
     <h2>
-      Title Case:<br />
-      | {{ userInput }} <br />
-      | {{ userInput | uppercase }}<br />
-      | {{ userInput | titlecase }}
+      Uses the custom pipe TitleCasePipe (keyword: titlecase).
+    </h2>
+    <h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>| titlecase: minorWords</td>
+            <td>{{ userInput | lowercase | titlecase: minorWords }}</td>
+          </tr>
+          <tr>
+            <td>| titlecase</td>
+            <td>{{ userInput | lowercase | titlecase }}</td>
+          </tr>
+        </tbody>
+      </table>
     </h2>
   </section>
 </main>
@@ -22,12 +34,12 @@
   <p>
     *A string is considered to be in title case if each word in the string is
     either capitalized with only the first letter in uppercase. Except in the
-    case of minor words, which will be all lower case unless they are the first
-    word of the string, in which case it would be capitalized like a 'normal'
+    case of a minor word, which will be all lower case unless it is the first
+    word of the string, in which case it will be capitalized like a 'normal'
     word.
   </p>
   <div>
-    Minor words:
+    Minor words from title-casing component:
     <span *ngFor="let minorWord of minorWords"> {{ minorWord }} </span>
   </div>
 </footer>
