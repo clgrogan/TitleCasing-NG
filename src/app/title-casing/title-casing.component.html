@@ -1,0 +1,24 @@
+<header>
+  <h1>Title Casing</h1>
+  <h2>The application takes the user input and converts it to title case*.</h2>
+</header>
+<main>
+  <section>
+    <input
+      [(value)]="userInput"
+      (keydown.enter)="userInput = $event.target.value; userInputChange()"
+    />
+  </section>
+  <section>
+    <h2>Title Case: {{ userInput }}</h2>
+  </section>
+</main>
+<footer>
+  <p>
+    *A string is considered to be in title case if each word in the string is
+    either capitalized with only the first letter in uppercase. Except in the
+    case of minor words, which will be all lower case unless they are the first
+    word of the string, in which case it would be capitalized like a 'normal'
+    word.
+  </p>
+</footer>
