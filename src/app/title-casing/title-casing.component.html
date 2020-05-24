@@ -3,28 +3,38 @@
   <h2>The application takes the user input and converts it to title case*.</h2>
 </header>
 <main>
-  <section>
+  <!-- <section>
     <h2>
       Two-way binding. Accesses component field directly (verbose & clunky)
     </h2>
-    <h3>
+    <h2 [style.paddingLeft]="'1rem'">
       <label>Input field: </label>
       <input
         [(value)]="userInput"
         (keydown.enter)="userInput = $event.target.value; userInputChange()"
+        [style.backgroundColor]="'pink'"
+        [style.width]="'60%'"
+        [style.fontSize]="'1.5rem'"
+        [style.fontFamily]="'Courier Headline'"
       />
-    </h3>
+    </h2>
   </section>
 
   <section>
     <h2>
       Two-way binding. Use (import) BrowserModule, FormsModule & ngModel.
     </h2>
-    <h3>
+    <h2 [style.paddingLeft]="'1rem'">
       <label>Input field: </label>
-      <input [(ngModel)]="userInput" />
-    </h3>
-  </section>
+      <input
+        [(ngModel)]="userInput"
+        [style.backgroundColor]="'pink'"
+        [style.width]="'60%'"
+        [style.fontSize]="'1.5rem'"
+        [style.fontFamily]="'Courier Headline'"
+      />
+    </h2>
+  </section> -->
   <!-- 
 					Can't bind to 'ngModel' since it isn't a known property of 'input'.
 					ngModel is in forms module. forms module is not automatically imported.
@@ -34,16 +44,69 @@
     <h2>
       Uses the custom pipe TitleCasePipe (keyword: titlecase).
     </h2>
-    <h2>
-      <table>
+    <p></p>
+    <h2 [style.paddingLeft]="'1rem'">
+      <table [style.width]="'95%'">
         <tbody>
           <tr>
-            <td>| titlecase: minorWords</td>
-            <td>{{ userInput | lowercase | titlecase: minorWords }}</td>
+            <td
+              [style.fontSize]="'1.2rem'"
+              [style.width]="'30%'"
+              [style.border]="'thin solid gray'"
+            >
+              directly bound<br />
+              to component
+            </td>
+            <td [style.width]="'70%'" [style.border]="'thin solid gray'">
+              <input
+                [(value)]="userInput"
+                (keydown.enter)="
+                  userInput = $event.target.value; userInputChange()
+                "
+                [style.backgroundColor]="'pink'"
+                [style.width]="'98%'"
+                [style.fontSize]="'1.5rem'"
+                [style.fontFamily]="'Courier Headline'"
+              />
+            </td>
           </tr>
           <tr>
-            <td>| titlecase</td>
-            <td>{{ userInput | lowercase | titlecase }}</td>
+            <td
+              [style.fontSize]="'1.2rem'"
+              [style.width]="'30%'"
+              [style.border]="'thin solid gray'"
+            >
+              2-way Binding<br />
+              With ngModel.
+            </td>
+            <td [style.width]="'70%'" [style.border]="'thin solid gray'">
+              <input
+                [(ngModel)]="userInput"
+                [style.backgroundColor]="'pink'"
+                [style.width]="'98%'"
+                [style.fontSize]="'1.5rem'"
+                [style.fontFamily]="'Courier Headline'"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td [style.fontSize]="'1.2rem'" [style.border]="'thin solid gray'">
+              passing minorWords
+            </td>
+            <td [style.border]="'thin solid gray'">
+              {{ userInput | lowercase | titlecase: minorWords }}
+            </td>
+          </tr>
+          <tr>
+            <td [style.fontSize]="'1.2rem'" [style.border]="'thin solid gray'">
+              passing no parms
+            </td>
+            <td
+              [style.border]="'thin solid gray'"
+              [style.fontFamily]="'Courier'"
+            >
+              {{ userInput | lowercase | titlecase }}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -51,12 +114,20 @@
   </section>
 </main>
 <footer>
-  <p>
-    *A string is considered to be in title case if each word in the string is
-    either capitalized with only the first letter in uppercase. Except in the
-    case of a minor word, which will be all lower case unless it is the first
-    word of the string, in which case it will be capitalized like a 'normal'
-    word.
+  <p [style.paddingLeft]="'1rem'">
+    Title case explained: <br />
+    *
+    {{ titleCaseExplained }}
+  </p>
+  <p [style.paddingLeft]="'1rem'">
+    Title case explained in TitleCasePipe passing minorWords array: <br />
+    *
+    {{ titleCaseExplained | lowercase | titlecase: minorWords }}
+  </p>
+  <p [style.paddingLeft]="'1rem'">
+    Title case explained in TitleCasePipe passing no parms: <br />
+    *
+    {{ titleCaseExplained | lowercase | titlecase }}
   </p>
   <div>
     Minor words from title-casing component:
