@@ -4,12 +4,32 @@
 </header>
 <main>
   <section>
-    <label>Input field: </label
-    ><input
-      [(value)]="userInput"
-      (keydown.enter)="userInput = $event.target.value; userInputChange()"
-    />
+    <h2>
+      Two-way binding. Accesses component field directly (verbose & clunky)
+    </h2>
+    <h3>
+      <label>Input field: </label>
+      <input
+        [(value)]="userInput"
+        (keydown.enter)="userInput = $event.target.value; userInputChange()"
+      />
+    </h3>
   </section>
+
+  <section>
+    <h2>
+      Two-way binding. Use (import) BrowserModule, FormsModule & ngModel.
+    </h2>
+    <h3>
+      <label>Input field: </label>
+      <input [(ngModel)]="userInput" />
+    </h3>
+  </section>
+  <!-- 
+					Can't bind to 'ngModel' since it isn't a known property of 'input'.
+					ngModel is in forms module. forms module is not automatically imported.
+					Need to import the FormsModule from @angular/forms and add it to the imports section in app.modules.ts.
+    -->
   <section>
     <h2>
       Uses the custom pipe TitleCasePipe (keyword: titlecase).
