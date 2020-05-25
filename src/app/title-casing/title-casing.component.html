@@ -41,9 +41,19 @@
 					Need to import the FormsModule from @angular/forms and add it to the imports section in app.modules.ts.
     -->
   <section>
-    <h2>
+    <h2 [style.margin]="'1rem 0 0 0'">
       Uses the custom pipe TitleCasePipe (keyword: titlecase).
     </h2>
+    <div
+      [style.color]="'indianred'"
+      [style.fontFamily]="'Comic Sans Ms'"
+      [style.paddingLeft]="'1rem'"
+    >
+      {{
+        "Text modified by TitleCasePipe is displayed in light red and Comic Sans Ms"
+          | titlecase
+      }}
+    </div>
     <p></p>
     <h2 [style.paddingLeft]="'1rem'">
       <table [style.width]="'95%'">
@@ -54,8 +64,8 @@
               [style.width]="'30%'"
               [style.border]="'thin solid gray'"
             >
-              directly bound<br />
-              to component
+              2-way Binding<br />
+              (verbose)
             </td>
             <td [style.width]="'70%'" [style.border]="'thin solid gray'">
               <input
@@ -66,7 +76,7 @@
                 [style.backgroundColor]="'pink'"
                 [style.width]="'98%'"
                 [style.fontSize]="'1.5rem'"
-                [style.fontFamily]="'Courier Headline'"
+                [style.fontFamily]="'Arial Narrow'"
               />
             </td>
           </tr>
@@ -85,25 +95,30 @@
                 [style.backgroundColor]="'pink'"
                 [style.width]="'98%'"
                 [style.fontSize]="'1.5rem'"
-                [style.fontFamily]="'Courier Headline'"
+                [style.fontFamily]="'Arial Narrow'"
               />
             </td>
           </tr>
           <tr>
             <td [style.fontSize]="'1.2rem'" [style.border]="'thin solid gray'">
-              passing minorWords
+              | titlecase: minorWords
             </td>
-            <td [style.border]="'thin solid gray'">
+            <td
+              [style.border]="'thin solid gray'"
+              [style.color]="'indianred'"
+              [style.fontFamily]="'Comic Sans Ms'"
+            >
               {{ userInput | lowercase | titlecase: minorWords }}
             </td>
           </tr>
           <tr>
             <td [style.fontSize]="'1.2rem'" [style.border]="'thin solid gray'">
-              passing no parms
+              | titlecase no parms
             </td>
             <td
               [style.border]="'thin solid gray'"
-              [style.fontFamily]="'Courier'"
+              [style.color]="'indianred'"
+              [style.fontFamily]="'Comic Sans Ms'"
             >
               {{ userInput | lowercase | titlecase }}
             </td>
@@ -122,12 +137,16 @@
   <p [style.paddingLeft]="'1rem'">
     Title case explained in TitleCasePipe passing minorWords array: <br />
     *
-    {{ titleCaseExplained | lowercase | titlecase: minorWords }}
+    <span [style.color]="'indianred'" [style.fontFamily]="'Comic Sans Ms'">
+      {{ titleCaseExplained | lowercase | titlecase: minorWords }}
+    </span>
   </p>
   <p [style.paddingLeft]="'1rem'">
     Title case explained in TitleCasePipe passing no parms: <br />
     *
-    {{ titleCaseExplained | lowercase | titlecase }}
+    <span [style.color]="'indianred'" [style.fontFamily]="'Comic Sans Ms'">
+      {{ titleCaseExplained | lowercase | titlecase }}
+    </span>
   </p>
   <div>
     Minor words from title-casing component:
